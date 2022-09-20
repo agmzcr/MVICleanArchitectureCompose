@@ -1,0 +1,30 @@
+{
+  "results": [
+    {
+      "location": {
+        "street": {
+          "number": 8929,
+          "name": "Valwood Pkwy"
+        },
+        "city": "Billings",
+        "state": "Michigan",
+        "country": "United States",
+        "postcode": 63104,
+        "coordinates": {
+          "latitude": "-69.8246",
+          "longitude": "134.8719"
+        },
+        "timezone": {
+          "offset": "+9:30",
+          "description": "Adelaide, Darwin"
+        }
+      }
+    }
+  ],
+  "info": {
+    "seed": "c5720106ec49ba1f",
+    "results": 1,
+    "page": 1,
+    "version": "1.3"
+  }
+}
