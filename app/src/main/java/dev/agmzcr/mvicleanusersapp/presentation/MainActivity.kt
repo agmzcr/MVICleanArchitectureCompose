@@ -22,13 +22,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MVICleanUsersAppTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    //
-                    MyApp()
+                    ScreenSetup()
                 }
             }
         }
@@ -36,15 +34,11 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MyApp(
+fun ScreenSetup(
     viewModel: HomeViewModel = hiltViewModel()
 ) {
     val users by viewModel.users.observeAsState(arrayListOf())
     val isLoading = viewModel.loading
 
-    HomeScreen(onAddClick = {
-        viewModel.addUser()
-    }, onDeleteClick = {
-        viewModel.deleteUser(it)
-    }, users, isLoading)
+    HomeScreen(viewModel, users, isLoading)
 }

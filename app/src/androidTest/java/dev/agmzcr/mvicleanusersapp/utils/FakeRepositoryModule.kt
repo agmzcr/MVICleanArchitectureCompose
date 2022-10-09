@@ -17,13 +17,13 @@ import javax.inject.Singleton
     replaces = [RepositoryModule::class]
 )
 class FakeRepositoryModule {
+
     @Provides
     @Singleton
     fun userRepository(): UserRepository =
         object : UserRepository {
 
             private val users = MutableLiveData<List<User>>(listOf())
-
 
             override suspend fun addUser(): User {
                 val userList = users.value!!

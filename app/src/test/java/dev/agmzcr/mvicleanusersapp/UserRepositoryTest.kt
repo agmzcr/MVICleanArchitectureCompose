@@ -95,13 +95,18 @@ class UserRepositoryTest {
     fun `Users is fetched correctly`() {
         runBlocking {
             val newUser = repository.addUser()
-
-            val users = repository.getAllUsers()
-            assertEquals(3, users.value?.size)
-            assertEquals(newUser.name, "Jennie")
-            assertEquals(newUser.lastName, "Nichols")
-            assertEquals(newUser.city, "Billings")
-            assert(newUser.thumbnail!!.contains("thumb/men/75.jpg"))
+            if (newUser != null) {
+                val users = repository.getAllUsers()
+                assertEquals(3, users.value?.size)
+                assertEquals(newUser.name, "Jennie")
+                assertEquals(newUser.lastName, "Nichols")
+                assertEquals(newUser.city, "Billings")
+                assert(newUser.thumbnail!!.contains("thumb/men/75.jpg"))
+            } else {
+                val users = repository.getAllUsers()
+                assertEquals(2, users.value?.size)
+                assertEquals(newUser, null)
+            }
         }
     }
 }
